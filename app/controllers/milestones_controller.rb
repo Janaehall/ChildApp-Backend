@@ -10,14 +10,21 @@ class MilestonesController < ApplicationController
   end
 
   def destroy
-    Milestone.find(params[:id]).delete
+    find_milestone
+    @milestone.delete
   end
 
   def update
-    milestone = Milestone.find(params[:id])
-    milestone.update(milestone_params)
-    milestone.save
-    render json: milestone
+    find_milestone
+    @milestone.update(milestone_params)
+    @milestone.save
+    render json: @milestone
+  end
+
+  private
+
+  def find_milestone
+    @milestone = Milestone.find(params[:id])
   end
 
   def milestone_params

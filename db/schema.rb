@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_01_06_203306) do
   create_table "posts", force: :cascade do |t|
     t.integer "child_id"
     t.string "content"
-    t.datetime "date", default: "2020-01-13 17:11:59"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -9,10 +9,6 @@ class Child < ApplicationRecord
   validates :name, presence: true
   validates :birthdate, presence: true
 
-  def birthday
-    birthdate.strftime('%B %d')
-  end
-
   def age
     bd = birthdate.strftime('%Y/%m/%d').split('/')
     time = DateTime.now.strftime('%Y/%m/%d').split('/')

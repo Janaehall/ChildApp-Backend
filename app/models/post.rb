@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   belongs_to :child
   belongs_to :user
   validates :content, presence: true
+  # accepts_nested_attributes_for :photos
 end

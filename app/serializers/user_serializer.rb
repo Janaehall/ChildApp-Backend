@@ -10,4 +10,12 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
+  def children
+    object.children.map{|c| {id: c.id, name: c.name}}
+  end
+
+  def friends_children
+    object.friends_children.map{|fc| {id: fc.id, name: fc.name}}
+  end
+
 end
