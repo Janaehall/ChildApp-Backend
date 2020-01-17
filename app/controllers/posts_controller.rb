@@ -10,33 +10,23 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    find_post
-    @post.delete
+    post.delete
   end
 
   def update
-    find_post
-    @post.update(post_params)
-    @post.save
-    render json: @post
-  end
-
-  def add_photos
-    find_post
-    @post.photos.attach(params[:post][:photo])
-    @post.save
-    render json: {photos: @post.photos.map{|p| url_for(p)}}
+    post.update(post_params)
+    post.save
+    render json: post
   end
 
   def show
-    find_post
-    render json: @post
+    render json: post
   end
 
   private
 
-  def find_post
-    @post = Post.find(params[:id])
+  def post
+    Post.find(params[:id])
   end
 
   def post_params

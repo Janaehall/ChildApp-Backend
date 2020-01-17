@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', constraints: { id: /[^\/]+/}
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'
-  get '/children/:id/timeline', to: 'children#timeline'
-  patch '/posts/:id/add_photos', to: 'posts#add_photos'
+  patch 'children/:id/add_video', to: 'children#add_video'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

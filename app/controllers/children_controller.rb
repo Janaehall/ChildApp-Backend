@@ -14,6 +14,16 @@ class ChildrenController < ApplicationController
     end
   end
 
+  def add_video
+    child.videos.attach(params[:child][:video])
+    if child.valid?
+      child.save
+      render json: {video: url_for(child.videos.last)}
+    else
+      render json: {errors: child.errors}
+    end
+  end
+
   def show
     render json: child
   end
@@ -28,6 +38,8 @@ class ChildrenController < ApplicationController
     child.delete
   end
 
+
+
   private
 
   def child
@@ -35,6 +47,6 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:id, :name, :birthdate, :parents, :photo)
+    params.require(:child).permit(:id, :name, :birthdate, :parents, :photo, :video)
   end
 end
