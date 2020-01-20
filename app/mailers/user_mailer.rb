@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     specialtext = "#{parent.name} has added you as a parent to #{child.name}'s profile!"
     # @user = user
     # @url  = 'http://example.com/login'
-    mail(to: user.email, subject: 'New notification from MyChild')
+    mail(to: user.email, subject: 'New notification from My Child')
   end
 
 end
