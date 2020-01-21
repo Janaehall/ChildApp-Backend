@@ -9,5 +9,4 @@ class Child < ApplicationRecord
   has_many :posts
   validates :name, presence: true
   validates :birthdate, presence: true
-  
 end

@@ -1,9 +1,8 @@
 class Post < ApplicationRecord
   has_many_attached :photos
-  has_many :comments
-  has_many :likes
+  has_many :comments, as: :commentable
+  has_many :likes, as: :likeable
   belongs_to :child
   belongs_to :user
   validates :content, presence: true
-  # accepts_nested_attributes_for :photos
 end

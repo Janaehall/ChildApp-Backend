@@ -51,18 +51,22 @@ ActiveRecord::Schema.define(version: 2020_01_06_203306) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "post_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
     t.integer "user_id"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "post_id"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   end
 
   create_table "milestones", force: :cascade do |t|
