@@ -17,7 +17,7 @@ class ChildSerializer < ActiveModel::Serializer
   end
 
   def info_only
-    {id: object.id, photo: photo, name: object.name, birthday: birthday, age: age, birthdate: object.birthdate }
+    {id: object.id, photo: photo, name: object.name, birthday: birthday, age: age, birthdate: object.birthdate}
   end
 
   def birthday

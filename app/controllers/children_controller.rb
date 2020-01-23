@@ -29,7 +29,7 @@ class ChildrenController < ApplicationController
   end
 
   def update
-    child.update(name: params[:child][:name], birthdate: params[:child][:birthdate], photo: params[:child][:photo])
+    child.update(child_params)
     child.save
     render json: ChildSerializer.new(child).info_only
   end
@@ -47,6 +47,6 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:id, :name, :birthdate, :parents, :photo, :video)
+    params.require(:child).permit(:id, :name, :birthdate, :parents, :video, :photo)
   end
 end
