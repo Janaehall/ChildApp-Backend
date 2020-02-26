@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_01_06_203306) do
 
   create_table "milestones", force: :cascade do |t|
     t.integer "child_id"
-    t.date "date"
     t.string "content"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
