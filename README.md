@@ -34,3 +34,4 @@ This application was built using:
   <li>Rails v6.0</li>
   <li>React v16.12</li>
 </ul>  
+ 
